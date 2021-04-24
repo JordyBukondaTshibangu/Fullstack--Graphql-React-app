@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
 import { PeopleContext } from '../../context/PeopleContext'
-import WarriorCard from '../../components/WarriorCard/index'
-import SearchBar from '../../components/SearchBar/index'
-import Loader from '../../components/Loader/index'
+import WarriorCard from '../../components/WarriorCard/'
+import SearchBar from '../../components/SearchBar/'
+import Pagination from '../../components/Pagination/'
+import Loader from '../../components/Loader/'
 import Error from '../../components/Error/'
 
 import { HomePageContainer,SearchContainer, Heading, PeopleContainer, RocketIcon } from './HomePageElement'
@@ -31,6 +32,7 @@ const HomePage = () => {
                 allPeople.map((person, index) => <WarriorCard key={index} person={person} shadow={false}/>)
             }
             </PeopleContainer>
+            <Pagination />
         </HomePageContainer>
     )
 }
