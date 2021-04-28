@@ -8,7 +8,7 @@ class PeopleAPI extends RESTDataSource {
 
   async getAllPeople(page){
       try {
-          if(page){        
+          if(page && page > 0 && page <= 9){        
             const response = await this.get(`people/?page=${page}`);
             const data = response.results;
           
