@@ -1,7 +1,7 @@
-/*
-const { gql } = require('apollo-server');
+const { gql } = require('apollo-server')
 
-const typeDefs = gql`
+module.exports.typeDefs = gql`
+
     type User {
         name : String!
         email : String!
@@ -60,7 +60,4 @@ const typeDefs = gql`
         deleteProfile(email : String!) : User!
 
     }
-`;
-
-module.exports = typeDefs;
-*/
+`

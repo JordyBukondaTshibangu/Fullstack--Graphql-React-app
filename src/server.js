@@ -1,7 +1,7 @@
 const { ApolloServer } = require('apollo-server') ;
 const { PrismaClient } = require('@prisma/client') ;
-const  typeDefs = require('./schema.js') ;
-const resolvers = require('./resolver.js') ;
+const  { typeDefs } = require('./schema/') ;
+const { resolvers } = require('./resolvers/') ;
 const PeopleAPI = require('./datasources/people.js') ;
 
 const prisma = new PrismaClient();
@@ -12,9 +12,10 @@ const server = new ApolloServer({
     dataSources : () => ({
         PeopleAPI : new PeopleAPI()
     }),
-    context: {
+    context: async ({ req }) => ({
       prisma,
-    }
+      req
+    })
 });
 
 server.listen().then(() => {

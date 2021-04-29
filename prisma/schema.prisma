@@ -17,3 +17,11 @@ model Person {
   gender   String
   homeworld    String
 }
+
+model User {
+  id  Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  name   String 
+  email  String @unique
+  password  String
+}

@@ -1,56 +1,19 @@
 const bcrypt = require('bcrypt');
-const { sign, verify } = require('jsonwebtoken');
-const { checkAuth } = require('./middleware/auth-middleware')
+const { sign } = require('jsonwebtoken');
+const { checkAuth } = require('../middleware/auth-middleware')
 
-const resolvers = {
+module.exports.resolverUser = {
+
     Query : {
-
-        allPeople : (_,{skip,take}, { dataSources }) => {
-            return dataSources.PeopleAPI.getAllPeople(take);
-        },
-        person : async(_,{filter}, { dataSources }) => {
-            return dataSources.PeopleAPI.getPerson(filter)
-        },
-
-        me : async(_, { email }, {prisma, req}) => {
-
+        me : async(_, __, { prisma, req}) => {
             const user = checkAuth(req)
 
-            const me = await prisma.user.findMany({ where : { email : user.email}})
+            const me = await prisma.user.findMany({ where : { email : user.email }})
             
             return me[0]
         }
     },
     Mutation : {
-
-        createPerson : (_, { createdPersonInput : { name ,height ,mass ,gender ,homeworld } } , context) => {
-
-            const newPerson = context.prisma.person.create({
-                data : {
-                    name ,height ,mass ,gender ,homeworld 
-                }
-            });
-            return newPerson;
-        },
-        updatePerson : (_, { updatedPerson : { name ,height ,mass ,gender ,homeworld } }, context ) => {
-            
-            const updatePerson = context.prisma.person.update({
-                where : { name }, 
-                data : {
-                     height ,mass ,gender ,homeworld 
-                }
-            });
-
-            return updatePerson;
-        },
-        deletePerson : (_, { name }, context) => {
-            const deletePerson = context.prisma.person.delete({ 
-                where : { name }
-            });
-
-            return deletePerson;
-        },
-
         register : async(_, { createdUser :  { name ,email, password }}, context) => {
 
             const encryptedPassword = await bcrypt.hash(password,8)
@@ -110,7 +73,7 @@ const resolvers = {
             })
             return updateUser
         },
-        deleteProfile : (_, { email }, { prisma, req}) => {
+        deleteProfile : (_, __, { prisma, req}) => {
 
             const user = checkAuth(req)
 
@@ -122,5 +85,3 @@ const resolvers = {
         }
     }
 }
-
-module.exports =  resolvers;
