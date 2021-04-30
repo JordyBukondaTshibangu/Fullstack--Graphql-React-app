@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FaTimes, FaRedditAlien, FaBook } from 'react-icons/fa';
+import { FaTimes, FaRedditAlien,FaUser, FaBook, FaUserPlus, FaPowerOff } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 export const SidebarContainer = styled.aside`
@@ -27,6 +27,15 @@ export const AlienIcon = styled(FaRedditAlien)`
 
 export const AboutIcon = styled(FaBook)`
     margin-right : 10px;
+`
+export const AddAlienIcon = styled(FaUserPlus)`
+margin-right : 10px;
+`
+export const MeIcon = styled(FaUser)`
+margin-right : 10px;
+`
+export const LogoutIcon = styled(FaPowerOff)`
+margin-right : 10px;
 `
 
 export const Icon = styled.div`
