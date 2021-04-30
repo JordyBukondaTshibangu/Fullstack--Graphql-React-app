@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useMutation } from '@apollo/client'
+import { useHistory } from 'react-router-dom'
 import { ADD_PERSON } from '../../graphql/Mutations'
 import {
 	PersonContainer,
@@ -13,6 +14,7 @@ import FormInput from '../../components/FormInput'
 import Button from '../../components/Button'
 
 const AddPerson = () => {
+	const history = useHistory()
 	const [createPerson] = useMutation(ADD_PERSON)
 
 	const [name, setName] = useState('')
@@ -32,6 +34,16 @@ const AddPerson = () => {
 			homeworld,
 		}
 		createPerson({ variables: { CreatedPersonInput: newPerson } })
+
+		setName('')
+		setHeight('')
+		setMass('')
+		setGender('')
+		setHomeworld('')
+
+		setTimeout(() => {
+			history.push('/')
+		}, 2000)
 	}
 
 	return (
