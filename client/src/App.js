@@ -1,33 +1,30 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { ApolloProvider } from '@apollo/client'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { client } from './utils/apolloClient.config.js'
 import PeopleContextProvider from './context/PeopleContext'
+import ProtectedRoute from './routes/ProtectedRoute'
+import Unauthorized from './routes/unauthorized'
+import LoginPage from './pages/login'
+import RegisterPage from './pages/register'
 import HomePage from './pages/home'
 import PersonPage from './pages/person'
 import AboutPage from './pages/about'
-import Navbar from './components/NavBar'
-import SideBar from './components/SideBar'
 
 
 const App = () => {
-
-  const [ isOpen, setOpen ] = useState(false)
-
-  const toggle = () => {
-    setOpen(!isOpen)
-  }
 
   return (
     <ApolloProvider client={client}>
       <PeopleContextProvider>
         <Router>
-            <Navbar toggle={toggle}/>
-            <SideBar isOpen={isOpen} toggle={toggle}/>
             <Switch>
-              <Route path="/" exact component={HomePage} />
-              <Route path="/about" exact component={AboutPage} />
-              <Route path="/people/:name" exact component={PersonPage} />
+              <Route path="/login" exact component={LoginPage} />
+              <Route path="/register" exact component={RegisterPage} />
+              <ProtectedRoute exact path="/" isAuth = {true}  component={HomePage} />
+              <ProtectedRoute exact path="/about" isAuth = {true}  component={AboutPage} />
+              <ProtectedRoute exact path="/people/:name" isAuth = {true}  component={PersonPage} />
+              <Route exact path='/unauthorized' component={Unauthorized} />
             </Switch>
         </Router>
       </PeopleContextProvider>
