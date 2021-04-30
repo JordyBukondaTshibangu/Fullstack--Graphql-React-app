@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const AddPersonContainer = styled.div`
+export const AddPersonContainer = styled.form`
 	text-align: center;
 	height: 100vh;
 
