@@ -15,7 +15,7 @@ module.exports.resolverUser = {
 	Mutation: {
 		register: async (
 			_,
-			{ createdUser: { name, email, dateOfBith, country, password } },
+			{ createdUser: { name, email, dateOfBirth, country, password } },
 			context
 		) => {
 			const encryptedPassword = await bcrypt.hash(password, 8)
@@ -24,7 +24,7 @@ module.exports.resolverUser = {
 				data: {
 					name,
 					email,
-					dateOfBith, 
+					dateOfBirth,
 					country,
 					password: encryptedPassword,
 				},
@@ -60,7 +60,11 @@ module.exports.resolverUser = {
 				}
 			}
 		},
-		updateProfile: (_, { updatedUser: { name, email, dateOfBith, country, } }, { prisma, req }) => {
+		updateProfile: (
+			_,
+			{ updatedUser: { name, email, dateOfBith, country } },
+			{ prisma, req }
+		) => {
 			const user = checkAuth(req)
 
 			const updateUser = prisma.user.update({
@@ -70,7 +74,7 @@ module.exports.resolverUser = {
 				data: {
 					name,
 					email,
-					dateOfBith, 
+					dateOfBith,
 					country,
 				},
 			})

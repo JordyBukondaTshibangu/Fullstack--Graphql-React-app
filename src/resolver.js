@@ -1,3 +1,4 @@
+/*
 const bcrypt = require('bcrypt');
 const { sign, verify } = require('jsonwebtoken');
 const { checkAuth } = require('./middleware/auth-middleware')
@@ -124,3 +125,4 @@ const resolvers = {
 }
 
 module.exports =  resolvers;
+*/

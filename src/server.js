@@ -1,7 +1,7 @@
 const { ApolloServer } = require('apollo-server')
 const { PrismaClient } = require('@prisma/client')
 const { typeDefs } = require('./schema/')
-const { resolvers } = require('./resolvers/')
+const { resolvers } = require('./resolvers/index')
 const PeopleAPI = require('./datasources/people.js')
 
 const prisma = new PrismaClient()
