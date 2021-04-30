@@ -4,10 +4,11 @@ export const ButtonComponent = styled.button`
     text-decoration : none;
     color : #fff;
     background : #000;
-    padding : 5px 60px;
+    padding : 8px 60px;
     font-weight : 800;
     font-size : 1rem;
     transition : 0.6s ease-in-out;
+    font-family: Blippo, fantasy;
     
     &:hover {
         color : #000;

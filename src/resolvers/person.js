@@ -14,7 +14,7 @@ module.exports.resolverPerson = {
 			{ prisma, req }
 		) => {
 			try {
-				checkAuth(req)
+				// checkAuth(req)
 
 				const newPerson = prisma.person.create({
 					data: { name, height, mass, gender, homeworld },
@@ -30,7 +30,7 @@ module.exports.resolverPerson = {
 			{ updatedPerson: { name, height, mass, gender, homeworld } },
 			{ req, prisma }
 		) => {
-			checkAuth(req)
+			// checkAuth(req)
 
 			const updatePerson = prisma.person.update({
 				where: { name },
@@ -45,7 +45,7 @@ module.exports.resolverPerson = {
 			return updatePerson
 		},
 		deletePerson: (_, { name }, { req, prisma }) => {
-			checkAuth(req)
+			// checkAuth(req)
 
 			const deletePerson = prisma.person.delete({
 				where: { name },

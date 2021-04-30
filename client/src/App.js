@@ -9,6 +9,8 @@ import LoginPage from './pages/login'
 import RegisterPage from './pages/register'
 import HomePage from './pages/home'
 import PersonPage from './pages/person'
+import EditPersonPage from './pages/editPerson'
+import AddPersonPage from './pages/addPerson'
 import AboutPage from './pages/about'
 import ProfilePage from './pages/profile'
 
@@ -24,6 +26,8 @@ const App = () => {
               <ProtectedRoute exact path="/" isAuth = {true}  component={HomePage} />
               <ProtectedRoute exact path="/about" isAuth = {true}  component={AboutPage} />
               <ProtectedRoute exact path="/people/:name" isAuth = {true}  component={PersonPage} />
+              <ProtectedRoute exact path="/edit-person/:name" isAuth = {true}  component={EditPersonPage} />
+              <ProtectedRoute exact path="/add-person" isAuth = {true}  component={AddPersonPage} />
               <ProtectedRoute exact path="/my-profile" isAuth = {true}  component={ProfilePage} />
               <Route exact path='/unauthorized' component={Unauthorized} />
             </Switch>
