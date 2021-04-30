@@ -1,7 +1,7 @@
 import React from 'react'
 import { ButtonComponent } from './ButtonElement'
 
-const Button = ({text, to}) => {
+const Button = ({text}) => {
     return (
         <ButtonComponent>
             { text }
