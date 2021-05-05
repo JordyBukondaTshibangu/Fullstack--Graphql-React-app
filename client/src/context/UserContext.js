@@ -1,4 +1,4 @@
-import React, { createContext } from 'react'
+import React, { createContext, useReducer } from 'react'
 
 export const UserContext = createContext()
 
@@ -33,8 +33,10 @@ const reducer = (state, action) => {
 
 const UserProviderContext = props => {
 
+    const [user, dispatch] = useReducer(reducer, initialState)
+
     return (
-        <UserContext.Provider>
+        <UserContext.Provider value={{}}>
             { props.children}
         </UserContext.Provider>
     )
