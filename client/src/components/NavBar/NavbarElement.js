@@ -1,12 +1,20 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { FaRedditAlien, FaBook } from 'react-icons/fa';
+import { FaRedditAlien, FaBook, FaUser, FaUserPlus, FaPowerOff } from 'react-icons/fa';
 
 export const AlienIcon = styled(FaRedditAlien)`
     margin-right : 10px;
 `
-
+export const AddAlienIcon = styled(FaUserPlus)`
+    margin-right : 10px;
+`
 export const AboutIcon = styled(FaBook)`
+    margin-right : 10px;
+`
+export const MeIcon = styled(FaUser)`
+    margin-right : 10px;
+`
+export const LogoutIcon = styled(FaPowerOff)`
     margin-right : 10px;
 `
 

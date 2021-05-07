@@ -38,7 +38,7 @@ export const Button = styled(Link)`
     font-weight : 800;
     font-size : 1rem;
     transition : 0.6s ease-in-out;
-    border-radius : 30px;
+    margin-right : 5px;
 
     &:hover {
         color : #000;

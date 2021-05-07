@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const FETCH_ALL_PEOPLE = gql`
-query {
-  allPeople {
+query AllPeople($skip : Int $take : Int){
+  allPeople (skip : $skip take : $take){
     name
     height
     mass

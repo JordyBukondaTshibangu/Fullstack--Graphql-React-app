@@ -46,6 +46,7 @@ const PersonPage = (props) => {
             </PersonDetailWrapper>
             <ButtonWrapper>
                 <Button to="/" id="button">  View all warriors </Button>
+                <Button to="/add-person" id="button">  Add person </Button>
             </ButtonWrapper>
         </PersonContainer>
     )

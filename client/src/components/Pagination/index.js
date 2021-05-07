@@ -1,19 +1,10 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios'
+import React, {useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import './Pagination.css'
 
-const Pagination = props => {
+const Pagination = () => {
 
-    const [offset, setOffset] = useState(0)
-    const [data, setData] = useState([])
-    const [perPage] = useState(10)
-    const [pageCount, setPageCount] = useState(0)
-
-    const handlePageClick = (e) => {
-        const selectedPage = e.selected;
-        setOffset(selectedPage + 1)
-    }
+    const [pageCount] = useState(0)
 
     return (
         <div>
@@ -25,7 +16,6 @@ const Pagination = props => {
                         pageCount={pageCount}
                         marginPagesDisplayed={2}
                         pageRangeDisplayed={5}
-                        onPageChange={handlePageClick}
                         containerClassName={"pagination"}
                         subContainerClassName={"pages pagination"}
                         activeClassName={"active"}/>
