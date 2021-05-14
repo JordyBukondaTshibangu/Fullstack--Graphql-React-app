@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const FromContainer = styled.div`
+export const FromContainer = styled.form`
     margin : 10% 20%;
     height : 90vh;
     padding : 30px;

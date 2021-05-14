@@ -6,7 +6,10 @@ const Error = ({error}) => {
     <ErrorContainer>
         <ErrorTitle>Message</ErrorTitle>
         <ErrorMessage>
-            Oupsssss.... an error occurred <Tool />
+           {
+             error === '' ? 'Oupsssss.... an error occurred' : error 
+           }
+            <Tool />
         </ErrorMessage>
     </ErrorContainer>
   )

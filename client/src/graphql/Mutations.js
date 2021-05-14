@@ -11,3 +11,14 @@ export const ADD_PERSON = gql`
 		}
 	}
 `
+export const CREATE_USER = gql`
+	mutation Register($CreatedUser : CreatedUser!){
+		register(createdUser : $CreatedUser){ 
+			name, 
+			email, 
+			dateOfBirth, 
+			country, 
+			token
+		} 
+	}
+`

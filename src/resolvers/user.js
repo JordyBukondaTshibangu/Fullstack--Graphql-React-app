@@ -18,8 +18,18 @@ module.exports.resolverUser = {
 			{ createdUser: { name, email, dateOfBirth, country, password } },
 			context
 		) => {
-			const encryptedPassword = await bcrypt.hash(password, 8)
+			const user = await context.prisma.user.findMany({
+				where: {
+					email,
+				},
+			})
 
+			const userRetrieved = user[0]
+			if(userRetrieved){
+				console.log("User Exist", userRetrieved)
+			}
+
+			const encryptedPassword = await bcrypt.hash(password, 8)
 			const newUser = await context.prisma.user.create({
 				data: {
 					name,

@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { CountryDropdown } from 'react-country-region-selector'
 import { CountryContainer } from './CountryElement'
 
-const CountryPicker = () => {
-	const [country, setCountry] = useState('')
+const CountryPicker = ({country, setCountry}) => {
 	return (
 		<CountryContainer>
 			<CountryDropdown
