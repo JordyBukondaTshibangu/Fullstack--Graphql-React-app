@@ -25,12 +25,12 @@ const App = () => {
               <Switch>
                 <Route path="/login" exact component={LoginPage} />
                 <Route path="/register" exact component={RegisterPage} />
-                <ProtectedRoute exact path="/" isAuth = {true}  component={HomePage} />
-                <ProtectedRoute exact path="/about" isAuth = {true}  component={AboutPage} />
-                <ProtectedRoute exact path="/people/:name" isAuth = {true}  component={PersonPage} />
-                <ProtectedRoute exact path="/edit-person/:name" isAuth = {true}  component={EditPersonPage} />
-                <ProtectedRoute exact path="/add-person" isAuth = {true}  component={AddPersonPage} />
-                <ProtectedRoute exact path="/my-profile" isAuth = {true}  component={ProfilePage} />
+                <ProtectedRoute exact path="/" component={HomePage} />
+                <ProtectedRoute exact path="/about" component={AboutPage} />
+                <ProtectedRoute exact path="/people/:name" component={PersonPage} />
+                <ProtectedRoute exact path="/edit-person/:name" component={EditPersonPage} />
+                <ProtectedRoute exact path="/add-person" component={AddPersonPage} />
+                <ProtectedRoute exact path="/my-profile" component={ProfilePage} />
                 <Route exact path='/unauthorized' component={Unauthorized} />
               </Switch>
           </Router>

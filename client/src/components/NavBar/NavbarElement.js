@@ -108,3 +108,16 @@ export const NavLink = styled(Link)`
         color : #5adeff;
     }
 `
+export const NavButton = styled.button`
+    height : 80px;
+    background-color : #000;
+    color : #fff;
+    border : none;
+    font-family: Blippo, fantasy;
+    letter-spacing: 1px;  
+    align-items : center;
+    text-decoration : none;
+    padding : 0 1rem;
+    height : 100%;
+    cursor: pointer;
+`

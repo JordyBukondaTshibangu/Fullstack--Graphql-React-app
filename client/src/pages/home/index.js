@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import { PeopleContext } from '../../context/PeopleContext'
 import WarriorCard from '../../components/WarriorCard/'
 import SearchBar from '../../components/SearchBar/'
-import Pagination from '../../components/Pagination/'
 import Loader from '../../components/Loader/'
 import Error from '../../components/Error/'
 
@@ -32,7 +31,6 @@ const HomePage = () => {
                 allPeople.map((person, index) => <WarriorCard key={index} person={person} shadow={false}/>)
             }
             </PeopleContainer>
-            <Pagination />
         </HomePageContainer>
     )
 }

@@ -27,7 +27,7 @@ const UserProviderContext = (props) => {
 		} else {
 			setError(true)
 		}
-	}, [data])
+	}, [data, token, user])
 
 	const registerUser = (createdUser) => {
 		register({ variables: { CreatedUser: createdUser } })

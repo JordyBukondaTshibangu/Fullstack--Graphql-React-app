@@ -58,9 +58,9 @@ module.exports.typeDefs = gql`
 		updatePerson(updatedPerson: UpdatedPerson): Person!
 		deletePerson(name: String!): Person!
 
-		login(email: String!, password: String!): User!
-		register(createdUser: CreatedUser!): User!
+		login(email: String!, password: String!): User
+		register(createdUser: CreatedUser!): User
 		updateProfile(updatedUser: UpdatedUser!): User!
-		deleteProfile(email: String!): User!
+		deleteProfile(email: String!): User
 	}
 `

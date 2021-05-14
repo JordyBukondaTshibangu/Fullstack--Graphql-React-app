@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import FormInput from '../../components/FormInput'
 import FormLabel from '../../components/FormLabel'
 import ButtonComponent from '../../components/Button'
@@ -59,7 +59,8 @@ const RegisterPage = () => {
 	return (
 		<>
 			<FromContainer onSubmit={handleRegistration}>
-				{errorMessage ? (
+				{	
+					errorMessage ? (
 					<Error error='Please ensure sll details are entered and the passwords matches' />
 				) : (
 					<>

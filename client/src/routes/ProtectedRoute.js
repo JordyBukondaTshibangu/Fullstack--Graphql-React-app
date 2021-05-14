@@ -3,9 +3,14 @@ import { Route, Redirect } from 'react-router-dom'
 import Navbar from '../components/NavBar'
 import SideBar from '../components/SideBar'
 
-const ProtectedRoute = ({ component: Component, isAuth, ...rest }) => {
-	const [isOpen, setOpen] = useState(false)
+const ProtectedRoute = ({ component: Component, ...rest }) => {
 
+	const user = JSON.parse(localStorage.getItem('user'))
+	const token = JSON.parse(localStorage.getItem('token'))
+
+	const isAuth = token
+	console.log(isAuth)
+	const [isOpen, setOpen] = useState(false)
 	const toggle = () => {
 		setOpen(!isOpen)
 	}
@@ -19,7 +24,7 @@ const ProtectedRoute = ({ component: Component, isAuth, ...rest }) => {
 						<>
 							<Navbar toggle={toggle} />
 							<SideBar isOpen={isOpen} toggle={toggle} />
-							<Component {...rest} {...props} />
+							<Component {...rest} {...props} user={user}/>
 						</>
 					)
 				} else {

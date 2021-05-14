@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaBars } from 'react-icons/fa'
+import { useHistory } from 'react-router-dom'
 import {
 	Nav,
 	NavContainer,
@@ -9,6 +10,7 @@ import {
 	NavMenu,
 	NavItem,
 	NavLink,
+	NavButton,
 	AlienIcon,
 	AddAlienIcon,
 	AboutIcon,
@@ -17,6 +19,11 @@ import {
 } from './NavbarElement'
 
 const Navbar = ({ toggle }) => {
+	const history = useHistory()
+	const handleLoggout = () => {
+		localStorage.clear()
+		history.push('/login')
+	}
 	return (
 		<>
 			<Nav>
@@ -56,8 +63,10 @@ const Navbar = ({ toggle }) => {
 						</NavItem>
 						<NavItem>
 							<NavLink to='/login' id='nav-item-aÍbout'>
-								<LogoutIcon />
-								Logout
+								<NavButton onClick={handleLoggout}>
+									<LogoutIcon />
+									Logout
+								</NavButton>
 							</NavLink>
 						</NavItem>
 					</NavMenu>

@@ -26,7 +26,7 @@ module.exports.resolverUser = {
 
 			const userRetrieved = user[0]
 			if(userRetrieved){
-				console.log("User Exist", userRetrieved)
+				return null
 			}
 
 			const encryptedPassword = await bcrypt.hash(password, 8)
@@ -57,11 +57,17 @@ module.exports.resolverUser = {
 			})
 
 			const userRetrieved = user[0]
+
+			if(user.length === 0){
+				return null
+			}
 			const result = await bcrypt.compare(password, userRetrieved.password)
 
 			const token = await sign({ email }, 'Thisismysecretkey', {
 				expiresIn: '3h',
 			})
+
+			console.log(userRetrieved)
 
 			if (result) {
 				return {

@@ -80,3 +80,23 @@ export const SidebarLink = styled(Link)`
     }
 
 `
+export const SidebarButton = styled.button`
+    background-color : #000;
+    border : none;
+    font-family: Blippo, fantasy;
+    letter-spacing: 1px;  
+    display : flex;
+    align-items : center;
+    justify-content : center;
+    text-decoration : none;
+    list-style : none;
+    font-size : 1.5rem;
+    color : #fff;
+    cursor: pointer;
+    transition : 0.2s ease-in-out;
+    margin-top : 20px;
+    &:hover {
+        color : #01bf71;
+        transition : 0.2s ease-in-out;
+    }
+`
