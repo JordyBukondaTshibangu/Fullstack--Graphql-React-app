@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
-export const ProfileContainer = styled.div`
+export const ProfileContainer = styled.form`
     display : grid;
     grid-template-rows : 2.4fr 0.8fr;
     height : 100vh;
@@ -40,11 +39,31 @@ export const AvatarContainer = styled.div`
 `
 export const LoginFormGroupButton = styled.div`
 `
-export const GroupButton = styled(Link)`
+export const GroupButton = styled.div`
+    display : flex;
     text-align : center;
     padding-top : 20px;
+    justify-content : center;
+    align-items : center;
 `
-
+export const EnableEditButton = styled.div`
+    text-decoration : none;
+    color : #fff;
+    background : #000;
+    padding : 8px 60px;
+    font-weight : 800;
+    font-size : 1rem;
+    margin-left : 1rem;
+    transition : 0.6s ease-in-out;
+    font-family: Blippo, fantasy;
+    
+    &:hover {
+        color : #000;
+        background : #fff;
+        transition : 0.6s ease-in-out;
+        box-shadow : 0 0 25px 0 rgba(0,0,0,0.6);
+    }
+`
 export const ProfileImage = styled.img`
     width : 150px;
     height : 150px;
@@ -54,8 +73,6 @@ export const ProfileImage = styled.img`
     @media screen and (max-width : 427px){
         margin : 0;
     } 
-
-
 `
 
 export const ProfileName = styled.h3`

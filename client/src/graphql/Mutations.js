@@ -33,3 +33,13 @@ export const LOGIN_USER = gql`
 		} 
 	}
 `
+export const UPDATE_PROFILE = gql`
+	mutation UpadteProfile($UpdatedUser : UpdatedUser){
+		updateProfile(updatedUser : $UpdatedUser){ 
+			name, 
+			email, 
+			dateOfBirth, 
+			country
+		} 
+	}
+`

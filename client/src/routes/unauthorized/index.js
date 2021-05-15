@@ -13,7 +13,7 @@ const Unauthorized = () => {
 				<span>4</span>
 			</section>
 			<div className='link-container'>
-				<Link to='/' className='more-link'>
+				<Link to='/login' className='more-link'>
 					GO BACK HOME{' '}
 				</Link>
 			</div>

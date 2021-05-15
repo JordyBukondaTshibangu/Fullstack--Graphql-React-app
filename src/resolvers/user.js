@@ -76,13 +76,25 @@ module.exports.resolverUser = {
 				}
 			}
 		},
-		updateProfile: (
+		updateProfile: async(
 			_,
-			{ updatedUser: { name, email, dateOfBith, country } },
+			{ updatedUser: { name, email, dateOfBirth, country } },
 			{ prisma, req }
 		) => {
 			const user = checkAuth(req)
 
+			const usersFound = await prisma.user.findMany({
+				where: {
+					email : user.email
+				},
+			})
+
+			const userRetrieved = usersFound[0]
+
+			if(!name) name = userRetrieved.name
+			if(!dateOfBirth) dateOfBirth = userRetrieved.dateOfBirth
+			if(!country) country = userRetrieved.country
+	
 			const updateUser = prisma.user.update({
 				where: {
 					email: user.email,
@@ -90,7 +102,7 @@ module.exports.resolverUser = {
 				data: {
 					name,
 					email,
-					dateOfBith,
+					dateOfBirth,
 					country,
 				},
 			})

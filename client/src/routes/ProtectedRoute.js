@@ -9,7 +9,6 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
 	const token = JSON.parse(localStorage.getItem('token'))
 
 	const isAuth = token
-	console.log(isAuth)
 	const [isOpen, setOpen] = useState(false)
 	const toggle = () => {
 		setOpen(!isOpen)
